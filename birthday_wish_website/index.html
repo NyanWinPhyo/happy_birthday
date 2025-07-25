@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lia’s Birthday</title>
+
+  <!-- TailwindCSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="birthday_letter/card.css" />
+  <link rel="stylesheet" href="floweranimation/plumeria-bloom.css" id="plumeria-bloom-css">
+  <link rel="stylesheet" href="floweranimation/orchid-bloom.css"  id="orchid-bloom-css">
+  <link rel="stylesheet" href="floweranimation/peony-bloom.css"   id="peony-bloom-css">
+
+  <style>
+    .font-greatVibes { font-family: 'Great Vibes', cursive; }
+    .font-poppins   { font-family: 'Poppins', sans-serif; }
+
+    /* Existing animation for petals */
+    @keyframes float {
+      0%,100% { transform: translateY(0) scale(1); }
+      50%     { transform: translateY(10px) scale(1.05); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* 🟡 NEW: Floating petals CSS */
+    .petal {
+      position: absolute;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Animations */
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes floatX {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(15px); }
+    }
+
+    @keyframes floatDiag {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(10px, -10px); }
+    }
+
+    .float-y {
+      animation: floatY 5s ease-in-out infinite;
+    }
+    .float-x {
+      animation: floatX 6s ease-in-out infinite;
+    }
+    .float-diag {
+      animation: floatDiag 7s ease-in-out infinite;
+    }
+
+    /* Optional delays */
+    .delay-0     { animation-delay: 0s; }
+    .delay-1000  { animation-delay: 1s; }
+    .delay-2000  { animation-delay: 2s; }
+    .delay-3000  { animation-delay: 3s; }
+  </style>
+
+  <!-- Flower bloom styles -->
+  <link rel="stylesheet" href="floweranimation/plumeria-bloom.css">
+  <link rel="stylesheet" href="floweranimation/orchid-bloom.css">
+  <link rel="stylesheet" href="floweranimation/peony-bloom.css">
+</head>
+
+<body class="bg-gradient-to-b from-[#FFF7F0] to-[#F9F0E6] text-gray-800">
+
+  <!-- HERO SECTION -->
+  <section id="hero"
+           class="h-screen flex flex-col items-center justify-center text-center relative overflow-hidden p-4">
+    <h1 class="font-greatVibes text-5xl md:text-6xl mb-4">Happy 20th Birthday, Hnin!</h1>
+    <p class="font-poppins text-xl md:text-2xl mb-6">A little surprise just for you.</p>
+
+    <!-- Floating petals (background visuals) -->
+    <!-- Floating petals (scattered) -->
+    <img src="images/petals.png" class="absolute top-[10%]  left-[10%] w-5 opacity-70 animate-float delay-0" />
+    <img src="images/petals.png" class="absolute top-[15%] right-[10%] w-10 opacity-60 animate-float delay-2000" />
+    <img src="images/petals.png" class="absolute top-[15%]  left-[50%] w-4  opacity-30 animate-float delay-3000" />
+    <img src="images/petals.png" class="absolute top-[35%] right-[25%] w-7  opacity-50 animate-float delay-1000" />
+    <img src="images/petals.png" class="absolute top-[55%]  left-[15%] w-8 opacity-70 animate-float delay-3000" />
+    <img src="images/petals.png" class="absolute top-[55%] right-[20%] w-4 opacity-40 animate-float delay-1000" />
+    <img src="images/petals.png" class="absolute top-[65%]  left-[10%] w-4 opacity-40 animate-float delay-2000" />
+    <img src="images/petals.png" class="absolute top-[75%] right-[10%] w-6  opacity-20 animate-float delay-1000" />
+    <img src="images/petals.png" class="absolute top-[85%]  left-[10%] w-3  opacity-50 animate-float delay-4000" />
+    <img src="images/petals.png" class="absolute top-[95%] right-[10%] w-4  opacity-40 animate-float delay-4000" />
+    <img src="images/petals.png" class="absolute top-[10%] left-[10%] w-6  opacity-70 animate-float delay-0" />
+    <img src="images/petals.png" class="absolute top-[20%] right-[15%] w-8  opacity-60 animate-float delay-1000" />
+    <img src="images/petals.png" class="absolute top-[30%] left-[25%] w-9  opacity-50 animate-float delay-2000" />
+    <img src="images/petals.png" class="absolute top-[40%] right-[5%]  w-7  opacity-40 animate-float delay-3000" />
+    <img src="images/petals.png" class="absolute top-[50%] left-[2%]  w-10 opacity-30 animate-float delay-4000" />
+    <img src="images/petals.png" class="absolute top-[60%] right-[28%] w-6  opacity-20 animate-float delay-1000" />
+    <img src="images/petals.png" class="absolute top-[70%] left-[18%] w-8  opacity-50 animate-float delay-2000" />
+    <img src="images/petals.png" class="absolute top-[80%] right-[12%] w-7  opacity-60 animate-float delay-3000" />
+    <img src="images/petals.png" class="absolute top-[90%] left-[28%] w-9  opacity-40 animate-float delay-0" />
+    <img src="images/petals.png" class="absolute top-[15%] right-[22%] w-10 opacity-30 animate-float delay-4000" />
+
+    <!-- AUDIO CONTROLS -->
+    <div class="flex items-center justify-center space-x-4 py-4">
+      <button id="prev-btn"
+              class="font-poppins text-2xl bg-[#FADADD] p-3 rounded-full shadow-lg hover:bg-[#f4cfd4] transition">
+        ⏮️
+      </button>
+
+      <button id="audio-btn"
+              class="font-poppins text-2xl bg-[#FADADD] p-3 rounded-full shadow-lg hover:bg-[#f4cfd4] transition">
+        <span id="audio-icon">▶️</span>
+      </button>
+
+      <button id="next-btn"
+              class="font-poppins text-2xl bg-[#FADADD] p-3 rounded-full shadow-lg hover:bg-[#f4cfd4] transition">
+        ⏭️
+      </button>
+
+      <button id="mute-btn"
+              class="font-poppins text-2xl bg-[#FADADD] p-3 rounded-full shadow-lg hover:bg-[#f4cfd4] transition">
+        <span id="mute-icon">🔈</span>
+      </button>
+    </div>
+
+    <audio id="bg-audio" preload="metadata"></audio>
+
+    <!-- Card Container -->
+    <!-- HERO: Card Thumbnail -->
+    <div id="card-thumb" class="mt-8 cursor-pointer tilt-target">
+      <img src="images/birthday_card2.jpg"
+          alt="Birthday Card"
+          class="w-64 mx-auto rounded-lg shadow-lg" />
+    </div>
+
+    <!-- CARD LIGHTBOX MODAL -->
+    <div id="card-lightbox"
+        class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50 p-4">
+      <div class="relative">
+        <!-- Modal Card -->
+        <div id="modal-card" class="card bg-white rounded-lg shadow-xl overflow-hidden">
+          <div class="grid grid-cols-2 h-full">
+            <!-- Left: Cake -->
+            <div class="cake bg-[#FDEBD0] flex items-center justify-center">
+              <img src="images/cake.jpg"
+                  alt="Birthday Cake"
+                  class="max-w-full max-h-full" />
+            </div>
+            <!-- Right: Letter -->
+            <div class="letter relative p-6 overflow-y-auto">
+              <button id="card-close"
+                      class="absolute top-2 right-2 text-gray-600 text-3xl hover:text-gray-800">
+                &times;
+              </button>
+              <div class="letter-inner">
+                <h3 class="font-greatVibes text-3xl mb-2">Dear Hnin,</h3>
+
+                <p class="font-poppins text-sm leading-relaxed mb-2">
+                  It’s been quite a while now, hasn’t it?
+                </p>
+
+                <p class="font-poppins text-sm leading-relaxed mb-2">
+                  Somehow, time moved quietly and quickly — and yet, I still remember 
+                  the first time we met like it happened just a moment ago. From 
+                  those early days to everything we’ve shared since, there’s always 
+                  been something about you that stayed with me. Maybe it’s the way 
+                  you light up a room, or maybe it’s how effortlessly you make people 
+                  feel seen — including me.
+                </p>
+
+                <p class="font-poppins text-sm leading-relaxed mb-2">
+                  I’ve seen you grow, struggle, laugh, fall quiet, and shine again. 
+                  And no matter where life has taken you, or how many days have passed 
+                  between conversations, I’ve always quietly wished you well — sometimes 
+                  from close, sometimes from afar. You’ve been that person for me. 
+                  The one I look out for even when I have no reason to. The one I can’t 
+                  help but care about.
+                </p>
+
+                <p class="font-poppins text-sm leading-relaxed mb-2">
+                  So, I truly hope you're doing well — not just in the obvious ways, 
+                  but in the quiet corners of your heart too. You deserve calm days, 
+                  joyful moments, and people who make your world feel a little softer. 
+                  I hope the year ahead brings more light than shadows, and that you keep 
+                  finding strength in yourself, even when things feel heavy.
+                </p>
+
+                <p class="font-poppins text-sm leading-relaxed mb-2">
+                  And if you ever find yourself needing someone — to talk to, to listen, 
+                  or to simply be there — I want you to know something:
+                </p>
+
+                <p class="font-poppins text-sm leading-relaxed mb-4">
+                  I’ll always be here.
+                </p>
+                <p class="font-poppins italic">With warmth,<br>Nyan</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- (Optional: overlay click closes too) -->
+      </div>
+    </div>
+    </section>
+    
+    <!-- INTERACTIVE FLOWER SECTION -->
+    <section id="flowers" class="py-16 px-4">
+      <h2 class="text-center font-poppins text-2xl mb-8">
+        Click a flower to see its meaning…
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Plumeria Card -->
+        <div class="flower-card bg-white rounded-full p-4 shadow-lg cursor-pointer"
+            data-flower="plumeria">
+          <img src="images/plumeria.jpg"
+              alt="Plumeria"
+              class="w-full h-auto rounded-full"/>
+        </div>
+
+        <!-- Orchid Card -->
+        <div class="flower-card bg-white rounded-full p-4 shadow-lg cursor-pointer"
+            data-flower="orchid">
+          <img src="images/orchids.jpg"
+              alt="Orchid"
+              class="w-full h-auto rounded-full"/>
+        </div>
+
+        <!-- Peony Card -->
+        <div class="flower-card bg-white rounded-full p-4 shadow-lg cursor-pointer"
+            data-flower="peony">
+          <img src="images/peony.jpg"
+              alt="Peony"
+              class="w-full h-auto rounded-full"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY SECTION -->
+    <section id="gallery" class="py-16 px-4 bg-[#D8E8D8]">
+      <h2 class="text-center font-poppins text-2xl mb-8">Memories</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <!-- Photo 1 -->
+        <div class="photo-card overflow-hidden rounded-lg shadow-lg">
+          <img
+            src="images/CF42E0AB-AAFA-4441-A1CF-AD13A6DCFD2D_1_105_c.jpeg"
+            data-full="images/CF42E0AB-AAFA-4441-A1CF-AD13A6DCFD2D_1_105_c.jpeg"
+            alt="Memory 1"
+            class="gallery-img w-full h-48 object-cover cursor-pointer hover:-translate-y-2 transition" />
+          <p class="font-poppins text-sm italic mt-2 text-center">
+            Remember this?
+          </p>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="photo-card overflow-hidden rounded-lg shadow-lg">
+          <img
+            src="images/IMG_1342.jpeg"
+            data-full="images/IMG_1342.jpeg"
+            alt="Memory 2"
+            class="gallery-img w-full h-48 object-cover cursor-pointer hover:-translate-y-2 transition" />
+          <p class="font-poppins text-sm italic mt-2 text-center">
+            Dunno where but I found it
+          </p>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="photo-card overflow-hidden rounded-lg shadow-lg">
+          <img
+            src="images/ChatGPT_image.png"
+            data-full="images/ChatGPT_image.png"
+            alt="Memory 3"
+            class="gallery-img w-full h-48 object-cover cursor-pointer hover:-translate-y-2 transition" />
+          <p class="font-poppins text-sm italic mt-2 text-center">
+            Best highlight of the year
+          </p>
+        </div>
+      </div>
+    </section>
+
+  <!-- LIGHTBOX MODAL (for photo enlargement) -->
+  <!-- NEW lightbox (centers image) -->
+  <div id="lightbox"
+      class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center p-4 z-50">
+    <div class="relative">
+      <img id="lightbox-img"
+          src=""
+          alt="Enlarged photo"
+          class="max-h-[80vh] max-w-[80vw] rounded-lg shadow-lg" />
+      <button id="lightbox-close"
+              class="absolute top-2 right-2 text-white text-3xl leading-none hover:text-gray-300 transition">
+        &times;
+      </button>
+    </div>
+  </div>
+
+  <!-- FLOWER MEANING MODAL (no bloom placed here) -->
+  <div id="flower-modal"
+       class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-40">
+    <div class="bg-white rounded-lg p-6 max-w-md w-full text-center relative">
+      <!-- Close button -->
+      <button id="modal-close"
+              class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">
+        &times;
+      </button>
+
+      <!-- Flower title & meaning -->
+      <h3 id="modal-title" class="font-greatVibes text-3xl mb-4"></h3>
+      <p id="modal-content" class="font-poppins text-lg"></p>
+    </div>
+  </div>
+
+  <!-- BLOOM ANIMATION AREA (hidden until a flower is clicked) -->
+  <div id="bloom-area"
+      class="fixed top-[30%] left-1/2 -translate-x-1/2 z-50 hidden pointer-events-none">
+    <!-- the flower HTML gets injected here -->
+  </div>
+
+  <!-- CLOSING NOTE + FOOTER -->
+  <section id="closing" class="py-16 px-4">
+    <div class="bg-[#D8E8D8] rounded-lg max-w-3xl mx-auto p-8 text-center">
+      <p class="font-greatVibes text-3xl mb-4">
+        Your presence has always meant more than you know
+      </p>
+      <p class="font-poppins text-lg">Happy Birthday, Hnin Oo Wai! — Nyan</p>
+    </div>
+  </section>
+
+  <footer class="py-4 text-center font-poppins text-sm text-gray-600">
+    Made with ❤️ just for you.
+  </footer>
+
+  <!-- 1) Vanilla-Tilt for 3D tilt effect (flower cards + photo cards) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+
+  <!-- 2) Main JavaScript logic -->
+  <script>
+    // — Vanilla-Tilt Initialization —
+    VanillaTilt.init(
+      document.querySelectorAll(".flower-card, .photo-card, .tilt-target"),
+      {
+        max: 8,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.25,
+      }
+    );
+
+    // — Flower meanings data & modal + bloom logic —
+    const flowers = {
+      plumeria: {
+        title: "Plumeria",
+        content: "Symbolizes positivity, new beginnings, and friendship.",
+      },
+      orchid: {
+        title: "Orchid",
+        content: "Represents beauty, love, and strength.",
+      },
+      peony: {
+        title: "Peony",
+        content: "Stands for honor, romance, and prosperity.",
+      },
+    };
+
+    const flowerModal     = document.getElementById("flower-modal");
+    const flowerTitleEl   = document.getElementById("modal-title");
+    const flowerContentEl = document.getElementById("modal-content");
+    const flowerCloseBtn  = document.getElementById("modal-close");
+    const bloomArea       = document.getElementById("bloom-area");
+
+    // Helper: clear and hide bloom area
+    function clearBloom() {
+      bloomArea.innerHTML = "";
+      bloomArea.classList.add("hidden");
+    }
+
+    // Close button (×) hides modal and bloom area
+    flowerCloseBtn.addEventListener("click", () => {
+      flowerModal.classList.add("hidden");
+      clearBloom();
+    });
+
+    // When a flower-card is clicked:
+    document.querySelectorAll('.flower-card').forEach(card => {
+      card.addEventListener('click', async () => {
+        const key = card.dataset.flower;               // "plumeria", "orchid", or "peony"
+        const bloomArea = document.getElementById('bloom-area');
+        const cssId     = `${key}-bloom-css`;
+        const jsId      = `${key}-bloom-js`;
+        const fnName    = `start${key[0].toUpperCase()+key.slice(1)}Bloom`;
+
+        // Show the meaning modal
+        flowerTitleEl.textContent   = flowers[key].title;
+        flowerContentEl.textContent = flowers[key].content;
+        flowerModal.classList.remove('hidden');
+
+        // Clear any previous bloom
+        bloomArea.innerHTML    = '';
+        bloomArea.classList.remove('hidden');
+
+        try {
+          // 1) Inject the correct bloom CSS (only once)
+          if (!document.getElementById(cssId)) {
+            const link = document.createElement('link');
+            link.id   = cssId;
+            link.rel  = 'stylesheet';
+            link.href = `floweranimation/${key}-bloom.css`;
+            document.head.appendChild(link);
+            await new Promise((res, rej) => {
+              link.onload  = res;
+              link.onerror = () => rej(new Error(`CSS failed to load ${link.href}`));
+            });
+          }
+
+          // 2) Fetch & inject the bloom HTML
+          const resp = await fetch(`floweranimation/${key}-bloom.html`);
+          if (!resp.ok) throw new Error(resp.statusText);
+          bloomArea.innerHTML = await resp.text();
+
+          // 3) Inject the bloom JS (only once)
+          if (!document.getElementById(jsId)) {
+            const script = document.createElement('script');
+            script.id  = jsId;
+            script.src = `floweranimation/${key}-bloom.js`;
+            document.body.appendChild(script);
+            await new Promise((res, rej) => {
+              script.onload  = res;
+              script.onerror = () => rej(new Error(`JS failed to load ${script.src}`));
+            });
+          }
+
+          // 4) Run the bloom
+          if (typeof window[fnName] === 'function') {
+            window[fnName]();
+          } else {
+            console.warn(`No bloom fn ${fnName}() found`);
+          }
+        } catch (err) {
+          console.error('Bloom load error:', err);
+          bloomArea.innerHTML = '';
+          bloomArea.classList.add('hidden');
+        }
+      });
+    });
+
+    // — Photo Lightbox (enlarge only) —
+    const lightbox         = document.getElementById("lightbox");
+    const lbImage          = document.getElementById("lightbox-img");
+    const lightboxCloseBtn = document.getElementById("lightbox-close");
+
+    document.querySelectorAll(".gallery-img").forEach(img => {
+      img.addEventListener("click", () => {
+        lbImage.src = img.dataset.full;
+        lightbox.classList.remove("hidden");
+      });
+    });
+
+    lightboxCloseBtn.addEventListener("click", () => {
+      lightbox.classList.add("hidden");
+      lbImage.src = "";
+    });
+    lightbox.addEventListener("click", e => {
+      if (e.target === lightbox) {
+        lightbox.classList.add("hidden");
+        lbImage.src = "";
+      }
+    });
+
+    // — Audio Control —
+    // 1) Define your playlist:
+    const playlist = [
+      'media/music/bd_tune.mp3',
+      'media/music/(Cut) Line Without A Hook Piano Cover.mp3',
+      'media/music/(Cut) Yiruma, (이루마) - Kiss the Rain.mp3'
+    ];
+
+    let currentTrack = 0;
+
+    const prevBtn   = document.getElementById('prev-btn');
+    const nextBtn   = document.getElementById('next-btn');
+    const audioBtn  = document.getElementById('audio-btn');
+    const muteBtn   = document.getElementById('mute-btn');
+
+    const audioIcon = document.getElementById('audio-icon');
+    const muteIcon  = document.getElementById('mute-icon');
+    const bgAudio   = document.getElementById('bg-audio');
+
+    // 2) Load a track by index
+    function loadTrack(idx) {
+      currentTrack = (idx + playlist.length) % playlist.length;  // wrap
+      bgAudio.src  = playlist[currentTrack];
+      bgAudio.load();
+      bgAudio.play();
+      audioIcon.textContent = '⏸️';  // show “pause”
+    }
+
+    // 3) Play/Pause toggle
+    audioBtn.addEventListener('click', () => {
+      if (!bgAudio.src) {
+        loadTrack(currentTrack);
+        return;
+      }
+      if (bgAudio.paused) {
+        bgAudio.play();
+        audioIcon.textContent = '⏸️';
+      } else {
+        bgAudio.pause();
+        audioIcon.textContent = '▶️';
+      }
+    });
+
+    // 4) Mute/Unmute toggle
+    muteBtn.addEventListener('click', () => {
+      bgAudio.muted = !bgAudio.muted;
+      muteIcon.textContent = bgAudio.muted ? '🔇' : '🔈';
+    });
+
+    // 5) Prev/Next buttons
+    prevBtn.addEventListener('click', () => loadTrack(currentTrack - 1));
+    nextBtn.addEventListener('click', () => loadTrack(currentTrack + 1));
+
+    // 6) Auto‐advance on end
+    bgAudio.addEventListener('ended', () => loadTrack(currentTrack + 1));
+
+    // — Card —
+    // CARD LIGHTBOX
+    const cardThumb     = document.getElementById('card-thumb');
+    const cardLightbox  = document.getElementById('card-lightbox');
+    const cardCloseBtn  = document.getElementById('card-close');
+
+    // Open modal on thumbnail click
+    cardThumb.addEventListener('click', () => {
+      cardLightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // optional: lock page scroll
+    });
+
+    // Close on × click
+    cardCloseBtn.addEventListener('click', () => {
+      cardLightbox.classList.add('hidden');
+      document.body.style.overflow = '';       // re-enable scroll
+    });
+
+    // Close if clicking outside the card
+    cardLightbox.addEventListener('click', e => {
+      if (e.target === cardLightbox) {
+        cardLightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

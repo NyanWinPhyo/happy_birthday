@@ -1,0 +1,22 @@
+/* birthday_letter/card.css */
+
+.card {
+  width: 80vw;
+  max-width: 800px;
+  height: 60vh;
+  max-height: 600px;
+  display: flex;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Cake panel: you can tweak background or image sizing */
+.cake img {
+  object-fit: contain;
+}
+
+/* Letter panel scrolls if content overflows */
+.letter {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}

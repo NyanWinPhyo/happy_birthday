@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lia’s Birthday</title>
+
+  <!-- TailwindCSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    .font-greatVibes { font-family: 'Great Vibes', cursive; }
+    .font-poppins   { font-family: 'Poppins', sans-serif; }
+
+    /* Floating petals animation */
+    @keyframes float {
+      0%,100% { transform: translateY(0)    scale(1); }
+      50%     { transform: translateY(10px)  scale(1.05); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Plumeria animatin */
+    plumeria {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: auto;
+    }
+    .petal {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 120px;  height: 60px;
+      background: radial-gradient(circle at 50% 20%, #FFEB74 20%, #FFFFFF 80%);
+      border-radius: 60px/30px;
+      transform-origin: 50% 100%;
+      transform: rotate(var(--tw-rotate)) scale(0); 
+    }
+    .petal.animate-bloom {
+      animation: bloom 1s ease-out forwards;
+    }
+    .petal--1 { transform: rotate(0deg)   scale(0); animation-delay: 0s;   }
+    .petal--2 { transform: rotate(72deg)  scale(0); animation-delay: 0.1s; }
+    .petal--3 { transform: rotate(144deg) scale(0); animation-delay: 0.2s; }
+    .petal--4 { transform: rotate(216deg) scale(0); animation-delay: 0.3s; }
+    .petal--5 { transform: rotate(288deg) scale(0); animation-delay: 0.4s; }
+
+    @keyframes bloom {
+      to { transform: rotate(var(--tw-rotate)) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-[#FFF7F0] to-[#F9F0E6] text-gray-800">
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="h-screen flex flex-col items-center justify-center text-center relative overflow-hidden p-4">
+    <h1 class="font-greatVibes text-5xl md:text-6xl mb-4">Happy Birthday, Hnin!</h1>
+    <p class="font-poppins text-xl md:text-2xl mb-6">A little surprise just for you.</p>
+
+    <!-- Audio control -->
+    <button id="audio-btn"
+      class="font-poppins text-2xl bg-[#FADADD] p-3 rounded-full shadow-lg hover:bg-[#f4cfd4] transition">
+      <span id="audio-icon">🔈</span>
+    </button>
+    <audio id="bg-audio" src="path/to/your-music.mp3" loop></audio>
+
+    <!-- Floating petals (repeat as needed) -->
+    <img src="path/to/petal.svg"
+         class="absolute top-10 left-1/4 w-16 opacity-70 animate-float" />
+    <img src="path/to/petal.svg"
+         class="absolute top-20 right-1/3 w-12 opacity-60 animate-float delay-2000" />
+  </section>
+
+  <!-- INTERACTIVE FLOWER SECTION -->
+  <section id="flowers" class="py-16 px-4">
+    <h2 class="text-center font-poppins text-2xl mb-8">Click a flower to see its meaning…</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="flower-card bg-white rounded-full p-4 shadow-lg cursor-pointer"
+           data-flower="plumeria">
+        <img src="images/plumeria.png" alt="Plumeria" class="w-full h-auto rounded-full"/>
+      </div>
+      <div class="flower-card bg-white rounded-full p-4 shadow-lg cursor-pointer"
+           data-flower="orchid">
+        <img src="images/orchid.png" alt="Orchid" class="w-full h-auto rounded-full"/>
+      </div>
+      <div class="flower-card bg-white rounded-full p-4 shadow-lg cursor-pointer"
+           data-flower="peony">
+        <img src="images/peony.png" alt="Peony" class="w-full h-auto rounded-full"/>
+      </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div id="flower-modal"
+         class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
+      <div class="bg-white rounded-lg p-6 max-w-md w-full text-center relative">
+        <button id="modal-close"
+                class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+        <h3 id="modal-title" class="font-greatVibes text-3xl mb-4"></h3>
+        <p id="modal-content" class="font-poppins text-lg"></p>
+      </div>
+    </div>
+    
+    <div class="plumeria">
+      <div class="petal petal--1"></div>
+      <div class="petal petal--2"></div>
+      <div class="petal petal--3"></div>
+      <div class="petal petal--4"></div>
+      <div class="petal petal--5"></div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY SECTION -->
+  <section id="gallery" class="py-16 px-4 bg-[#D8E8D8]">
+    <h2 class="text-center font-poppins text-2xl mb-8">Our Memories</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <!-- Repeat for each photo -->
+      <div class="photo-card …">
+        <img src="images\photo1.jpg"
+             data-full="images/photo1.jpg"
+            alt="Memory 1"
+            class="gallery-img w-full h-48 object-cover cursor-pointer hover:-translate-y-2 transition" />
+        <p class="font-poppins text-sm italic mt-2 text-center">Caption for Photo 1</p>
+      </div>
+      <div class="photo-card …">
+        <img src="images\photo2.jpg"
+             data-full="images/photo2.jpg"
+            alt="Memory 2"
+            class="gallery-img w-full h-48 object-cover cursor-pointer hover:-translate-y-2 transition" />
+        <p class="font-poppins text-sm italic mt-2 text-center">Caption for Photo 2</p>
+      </div>
+      <div class="photo-card …">
+        <img src="images\photo3.jpg"
+             data-full="images/photo3.jpg"
+            alt="Memory 3"
+            class="gallery-img w-full h-48 object-cover cursor-pointer hover:-translate-y-2 transition" />
+        <p class="font-poppins text-sm italic mt-2 text-center">Caption for Photo 3</p>
+      </div>
+      <!-- … -->
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL -->
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center p-4 z-50">
+  <div class="relative">
+    <!-- Enlarged image -->
+    <img id="lightbox-img"
+         src=""
+         alt="Enlarged photo"
+         class="max-h-[80vh] max-w-[80vw] rounded-lg shadow-lg" />
+    <!-- Close button -->
+    <button id="lightbox-close"
+            class="absolute top-2 right-2 text-white text-3xl leading-none hover:text-gray-300 transition">
+      &times;
+    </button>
+  </div>
+</div>
+
+
+  <!-- CLOSING NOTE + FOOTER -->
+  <section id="closing" class="py-16 px-4">
+    <div class="bg-[#D8E8D8] rounded-lg max-w-3xl mx-auto p-8 text-center">
+      <p class="font-greatVibes text-3xl mb-4">
+        Thank you for being the light in my life.
+      </p>
+      <p class="font-poppins text-lg">Happy Birthday, Hnin! — Nyan</p>
+    </div>
+  </section>
+
+  <footer class="py-4 text-center font-poppins text-sm text-gray-600">
+    Made with ❤️ just for you.
+  </footer>
+
+  <!-- Vanilla-Tilt for 3D tilt effect -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+  <script>
+    // initialize tilt on flower & photo cards
+    VanillaTilt.init(document.querySelectorAll(".flower-card, .photo-card"), {
+      max: 8,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.25,
+    });
+
+    // Flower meanings data
+    const flowers = {
+      plumeria: {
+        title: "Plumeria",
+        content: "Symbolizes positivity, new beginnings, and friendship."
+      },
+      orchid: {
+        title: "Orchid",
+        content: "Represents beauty, love, and strength."
+      },
+      peony: {
+        title: "Peony",
+        content: "Stands for honor, romance, and prosperity."
+      }
+    };
+
+    // Modal logic
+    const modal      = document.getElementById("flower-modal");
+    const titleEl    = document.getElementById("modal-title");
+    const contentEl  = document.getElementById("modal-content");
+    document.getElementById("modal-close")
+      .addEventListener("click", () => modal.classList.add("hidden"));
+
+    document.querySelectorAll(".flower-card")
+      .forEach(card => {
+        card.addEventListener("click", () => {
+          const key = card.getAttribute("data-flower");
+          titleEl.textContent   = flowers[key].title;
+          contentEl.textContent = flowers[key].content;
+          modal.classList.remove("hidden");
+        });
+      });
+      // Plumeria
+      const bloomContainer = document.querySelector('.plumeria');
+      const petals         = bloomContainer.querySelectorAll('.petal');
+      const plumeriaCard   = document.querySelector('.flower-card[data-flower="plumeria"]');
+      const flowerModal    = document.getElementById("flower-modal");
+      const flowerCloseBtn = document.getElementById("modal-close");
+      plumeriaCard.addEventListener('click', () => {
+        petals.forEach(petal => {
+          petal.classList.remove('animate-bloom');
+          void petal.offsetWidth;
+          petal.classList.add('animate-bloom');
+        });
+        flowerModal.classList.remove('hidden');
+      });
+      flowerCloseBtn.addEventListener('click', () => {
+        flowerModal.classList.add('hidden');
+        petals.forEach(petal => {
+          petal.classList.remove('animate-bloom');
+        });
+      });
+
+    // Lightbox Model
+    const lightbox    = document.getElementById('lightbox');
+    const lbImage     = document.getElementById('lightbox-img');
+    const lightboxCloseBtn    = document.getElementById('lightbox-close');
+    // Open lightbox on thumbnail click
+    document.querySelectorAll('.gallery-img').forEach(img => {
+      img.addEventListener('click', () => {
+        lbImage.src = img.dataset.full;
+        lightbox.classList.remove('hidden');
+      });
+    });
+    // Close lightbox when × is clicked
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.add('hidden');
+      lbImage.src = '';
+    });
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightbox.classList.add('hidden');
+        lbImage.src = '';
+      }
+    });
+
+    // Audio control
+    const audioBtn  = document.getElementById("audio-btn");
+    const audioIcon = document.getElementById("audio-icon");
+    const bgAudio   = document.getElementById("bg-audio");
+    let playing = false;
+    audioBtn.addEventListener("click", () => {
+      if (!playing) {
+        bgAudio.play(); audioIcon.textContent = "🔇";
+      } else {
+        bgAudio.pause(); audioIcon.textContent = "🔈";
+      }
+      playing = !playing;
+    });
+  </script>
+</body>
+</html>

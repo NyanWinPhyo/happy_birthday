@@ -1,0 +1,84 @@
+/* floweranimation/plumeria-bloom.css */
+.plumeria-bloom {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  margin: auto;
+}
+
+/* STALK */
+.stem {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  height: 0;
+  background: #6ab04c;
+  transform: translateX(-50%);
+  animation: grow-stem 1s forwards ease-in-out;
+}
+@keyframes grow-stem {
+  to { height: 200px; }
+}
+
+/* LEAVES */
+.leaf {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  background: #58B368;
+  border-radius: 50% / 100%;
+  top: 130px;
+}
+.leaf--left  { left: 30%; transform: rotate(-30deg); }
+.leaf--right { right: 30%; transform: rotate(30deg); }
+
+/* PETALS */
+.petal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 60px;
+  background: radial-gradient(
+    circle at 50% 20%,
+    #fef35c 20%,   /* yellow center */
+    #FFFFFF 80%    /* white edges */
+  );
+  border-radius: 60px / 30px;
+  transform-origin: 50% 100%;
+  transform: rotate(var(--tw-rotate)) scale(0);
+  pointer-events: none;
+}
+
+/* BLOOM ANIMATION */
+.petal.animate-bloom {
+  animation: bloom 1s ease-out forwards;
+}
+
+/* PETAL ROTATION + DELAY */
+.petal--1 { --tw-rotate: 0deg;   animation-delay: 0s;   }
+.petal--2 { --tw-rotate: 72deg;  animation-delay: 0.1s; }
+.petal--3 { --tw-rotate: 144deg; animation-delay: 0.2s; }
+.petal--4 { --tw-rotate: 216deg; animation-delay: 0.3s; }
+.petal--5 { --tw-rotate: 288deg; animation-delay: 0.4s; }
+
+@keyframes bloom {
+  to {
+    transform: rotate(var(--tw-rotate)) scale(1);
+  }
+}
+
+/* CENTER */
+.center {
+  position: absolute;
+  top: 65px;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background: #ffcc00;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+

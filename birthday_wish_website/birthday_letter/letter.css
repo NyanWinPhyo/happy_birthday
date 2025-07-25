@@ -1,0 +1,36 @@
+/* letter.css */
+
+.letter-inner {
+  position: relative;
+  padding-right: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+#close-letter {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+#close-letter:hover {
+  color: #000;
+}
+
+.letter-inner h3 {
+  margin-bottom: 0.75rem;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+}
+
+.letter-inner p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
